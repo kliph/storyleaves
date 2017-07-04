@@ -4,6 +4,11 @@
             [storyleaves.state :as state]
             [cljs.core.async :refer [chan <! put!]]))
 
+(defn deck-with-indices [deck]
+  (map-indexed (fn [idx card]
+                 (assoc card :idx idx))
+               deck))
+
 (def first-file
   (map (fn [e]
          (let [target (.-currentTarget e)
@@ -13,13 +18,13 @@
            (set! (.-value target) "")
            file))))
 
-
 (def extract-result
   (map #(-> %
             .-target
             .-result
             cljs.reader/read-string
-            deck-spec/just-valid-deck)))
+            deck-spec/just-valid-deck
+            deck-with-indices)))
 
 (def uploaded-files (chan 1 first-file))
 (def file-reads (chan 1 extract-result))
@@ -35,11 +40,16 @@
     (recur)))
 
 (go-loop []
-  (swap! state/app-state assoc :deck (<! file-reads))
-  (recur))
+  (let [deck (<! file-reads)
+        shuffled-deck (shuffle deck)
+        hand (take 5 shuffled-deck)
+        rest-deck (drop 5 shuffled-deck)]
+    (swap! state/app-state assoc :deck deck :shuffled-deck rest-deck :hand hand)
+
+    (recur)))
 
 (defn loader []
-  [:div
+  [:div.loader
    [:label {:for "load_deck"} "Load deck: "
     [:input {:type "file"
              :id "load_deck"

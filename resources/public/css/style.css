@@ -13,7 +13,7 @@ body {
   color: rgba(255, 255, 255, 0.87);
   font-family: Roboto, sans-serif;
   font-weight: 400;
-  font-size: 1em;
+  font-size: 0.5em;
   line-height: 1.25;
 }
 
@@ -44,6 +44,16 @@ p {
   flex-direction: row;
 }
 
+.controls {
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.controls > span > button {
+  margin: 1em;
+}
+
 .card-border {
   border: 2px solid rgb(59, 152, 179);
   padding: 0.25em;
@@ -71,4 +81,9 @@ p {
   border-radius: 16px;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+
+.loader {
+  margin-left: 4em;
+  font-size: 1.5em;
 }
