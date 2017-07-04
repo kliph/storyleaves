@@ -53,6 +53,10 @@ p {
   justify-content: center;
 }
 
+.discard-pile {
+  text-align: center;
+}
+
 .controls > span > button {
   margin: 1em;
 }

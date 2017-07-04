@@ -3,6 +3,6 @@
             [storyleaves.state :as state]))
 
 (defn discard-pile []
-  [:div.discard-pile.center
+  [:div.discard-pile
    [cards/card-back]
-   [:p {} (count (get @state/app-state :discard))]])
+   [:div {} (count (get @state/app-state :discard))]])
