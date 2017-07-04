@@ -8,7 +8,8 @@
 (defn app-container []
   [:div {}
    [cards/card {:title "Hello World!"
-                :kind "Character"}]
+                :kind "Character"
+                :idx 1}]
    [cards/card-back]])
 
 (r/render-component [app-container] (by-id "app"))
