@@ -1,11 +1,21 @@
 (ns storyleaves.play-area
   (:require [storyleaves.hand :as hand]
             [storyleaves.discard :as discard]
+            [storyleaves.facets :as facets]
             [storyleaves.state :as state]))
 
 (defn play-area []
   [:div
-   [:h2.play-area {} "Discard pile"]
-   [discard/discard-pile]
+   [:div.row
+    [:div
+     [:h2.play-area {} "Antagonist Resources / Facets"]
+     [facets/protagonist-facets]]
+    [:div
+     [:h2.play-area {} "Discard pile"]
+     [discard/discard-pile]]]
+   [:div
+    [:h2.play-area {} "Protagonist Resources / Facets"]
+    [facets/protagonist-facets]]
    [:h2.play-area {} "Hand"]
-   [hand/hand (get @state/app-state :hand [])]])
+   [hand/hand (get @state/app-state :hand [])]]
+  )
