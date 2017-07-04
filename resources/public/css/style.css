@@ -3,7 +3,7 @@ blau: rgb(59, 152, 179);
 gold: rgb(232, 160, 0);
 white: rgba(255, 255, 255, 0.87);
 bg: rgb(35, 42, 46);
-chip-bg: rgb(28, 31, 35);
+chip-bg: rgba(28, 31, 35, 0.87);
 */
 
 body {
@@ -30,6 +30,10 @@ h2 {
   color: rgb(59, 152, 179);
 }
 
+h2.play-area {
+  margin-left: 1em;
+}
+
 p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -47,7 +51,6 @@ p {
 .controls {
   align-items: center;
   justify-content: center;
-  padding-bottom: 2em;
 }
 
 .controls > span > button {
@@ -86,4 +89,13 @@ p {
 .loader {
   margin-left: 4em;
   font-size: 1.5em;
+}
+
+section.play-area {
+  padding-top: 1em;
+  margin-top: 1em;
+  border-top: 1px solid rgba(28, 31, 35, 0.87);
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid rgba(28, 31, 35, 0.87);
 }

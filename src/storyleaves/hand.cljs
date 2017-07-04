@@ -4,11 +4,19 @@
 
 (defn draw-hand! []
   (let [original-shuffled-deck (get @state/app-state :shuffled-deck [])
+        original-hand (get @state/app-state :hand [])
+        discard (concat (get @state/app-state :discard [])
+                        original-hand)
         hand (take 5 original-shuffled-deck)]
-    (swap! state/app-state assoc :shuffled-deck (drop 5 original-shuffled-deck) :hand hand)))
+    (swap! state/app-state assoc
+           :shuffled-deck (drop 5 original-shuffled-deck)
+           :hand hand
+           :discard discard)))
 
 (defn shuffle-deck! []
-  (swap! state/app-state assoc :shuffled-deck (shuffle (get @state/app-state :deck []))))
+  (swap! state/app-state assoc
+         :shuffled-deck (shuffle (get @state/app-state :deck []))
+         :discard []))
 
 (defn controls []
   [:span
