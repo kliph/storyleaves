@@ -1,0 +1,54 @@
+/*
+blau: rgb(59, 152, 179);
+gold: rgb(232, 160, 0);
+white: #eee;
+bg: rgb(35, 42, 46);
+shad: rgba(35, 42, 46, 0.57);
+*/
+
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 1em;
+  color: #eee;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.25;
+}
+
+html {
+  background-color: rgb(35, 42, 46);
+}
+
+h1 {
+  color: rgb(232, 160, 0);
+  font-size: 1.5em;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: rgb(59, 152, 179);
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.card-border {
+  border: 2px solid rgb(59, 152, 179);
+  padding: 0.25em;
+  border-radius: 1.25em;
+  max-width: 14em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.card-border-inset {
+  border: 2px solid rgb(59, 152, 179);
+  padding: 1em;
+  border-radius: 2em;
+  min-height: 16em;
+  border-radius: 1em;
+}
