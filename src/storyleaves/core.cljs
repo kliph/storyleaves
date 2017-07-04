@@ -4,6 +4,7 @@
             [storyleaves.deck-loader :as deck-loader]
             [storyleaves.play-area :as play-area]
             [storyleaves.state :as state]
+            [storyleaves.card-input :as card-input]
             [goog.dom]))
 
 (def by-id goog.dom.getElement)
@@ -25,6 +26,14 @@
                      :idx idx}])
       (get @state/app-state :deck []))
 
-     [cards/card-back]]]])
+     [cards/card-back]]]
+   [:div.row
+    [card-input/card-input]]
+   [:div.row
+    [cards/card {:title "Hello World!"
+                 :kind "Character"
+                 :idx 1}]
+    [cards/card-back]]])
+
 
 (r/render-component [app-container] (by-id "app"))

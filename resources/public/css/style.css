@@ -102,4 +102,11 @@ section.play-area {
   padding-bottom: 1em;
   margin-bottom: 1em;
   border-bottom: 1px solid rgba(28, 31, 35, 0.87);
+
+.card-input {
+  margin: 0 auto;
+}
+
+.card-input > * {
+  margin: 0.5em;
 }
