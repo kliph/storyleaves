@@ -56,7 +56,7 @@ p {
   border: 2px solid rgb(59, 152, 179);
   padding: 1em;
   border-radius: 2em;
-  min-height: 16em;
+  height: 16em;
   border-radius: 1em;
   text-align: center;
 }
