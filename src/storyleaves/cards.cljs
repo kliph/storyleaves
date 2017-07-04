@@ -8,13 +8,14 @@
     children]])
 
 (defn card [{:keys [title kind idx]} props]
-  [card-border
-   [:h2 {}
-    idx]
-   [:h1 {}
-    title]
-   [:div.chip {}
-    kind]])
+  (let [key (str idx kind title)]
+    [card-border
+     [:h2 {:key (str key "idx")}
+      idx]
+     [:h1 {:key (str key "title")}
+      title]
+     [:div.chip {:key (str key "kind")}
+      kind]]))
 
 (defn card-back []
   [card-border])
