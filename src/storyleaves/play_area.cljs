@@ -9,13 +9,13 @@
    [:div.row
     [:div
      [:h2.play-area {} "Antagonist Resources / Facets"]
-     [facets/protagonist-facets]]
-    [:div
+     [facets/antagonist-facets]]
+    [:div.discard-pile-area
      [:h2.play-area {} "Discard pile"]
-     [discard/discard-pile]]]
-   [:div
-    [:h2.play-area {} "Protagonist Resources / Facets"]
-    [facets/protagonist-facets]]
+     [discard/discard-pile]]
+    [:div
+     [:h2.play-area {} "Protagonist Resources / Facets"]
+     [facets/protagonist-facets]]]
    [:h2.play-area {} "Hand"]
    [hand/hand (get @state/app-state :hand [])]]
   )

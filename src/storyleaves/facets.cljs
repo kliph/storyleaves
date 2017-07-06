@@ -5,10 +5,16 @@
 
 (defn facet-slot []
   [:div.facet
-   [cards/card-back]])
+   [cards/slot]])
+
+(defn facet-row [kind]
+  [:div.row.facets
+   (map (fn [idx]
+          [facet-slot {:key (str kind "facet" idx)}])
+        (range 3))])
 
 (defn protagonist-facets []
-  [:div.row.protagonist-facets
-   (map (fn []
-          [facet-slot])
-        (range 3))])
+  [facet-row :protagonist])
+
+(defn antagonist-facets []
+  [facet-row :antagonist])

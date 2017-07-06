@@ -19,3 +19,6 @@
 
 (defn card-back []
   [card-border])
+
+(defn slot []
+  [:div.slot {}])

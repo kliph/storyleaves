@@ -57,6 +57,10 @@ p {
   text-align: center;
 }
 
+.discard-pile-area {
+  margin-left: 10em;
+}
+
 .controls > span > button {
   margin: 1em;
 }
@@ -102,4 +106,25 @@ section.play-area {
   padding-bottom: 1em;
   margin-bottom: 1em;
   border-bottom: 1px solid rgba(28, 31, 35, 0.87);
+}
+
+.slot {
+  position:relative;
+  background-color: rgb(35, 42, 46);
+  border: 1px solid rgba(255, 255, 255, 0.87);
+  width: 14em;
+  height: 16em;
+  margin: 1em;
+  margin-top: 1.5em;
+}
+
+.slot:before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border: 1px solid rgb(35, 42, 46);
+  height: 100%;
+  width: 100%;
+  border-radius: 15%;
 }
