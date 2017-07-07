@@ -57,7 +57,9 @@ p {
   text-align: center;
 }
 
-.discard-pile-area {
+
+
+section.play-area .space-left {
   margin-left: 10em;
 }
 
@@ -80,6 +82,10 @@ p {
   height: 16em;
   border-radius: 1em;
   text-align: center;
+}
+
+.selected {
+  border-style: dashed;
 }
 
 .chip {

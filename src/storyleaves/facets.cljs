@@ -18,3 +18,6 @@
 
 (defn antagonist-facets []
   [facet-row :antagonist])
+
+(defn antagonist-effort []
+  [facet-slot])
