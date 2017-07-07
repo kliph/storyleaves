@@ -21,7 +21,7 @@
 (defn controls []
   [:span
    [:button {:on-click #(js/console.log "hiiiiiii")}
-    "Draw up to 5 cards"]
+    "Refill hand up to 5 cards"]
    [:button {:on-click #(shuffle-deck!)}
     "Reshuffle Deck"]
    [:button {:on-click #(draw-hand!)}
