@@ -2,29 +2,33 @@
   (:require [reagent.core :as r]
             [storyleaves.state :as state]))
 
-(defn card-border [click-fn selected-atom & children]
+(defn selected? [idx]
+  (= idx (-> @state/app-state
+             :selected-card
+             :idx)))
+
+(defn card-border [click-fn idx & children]
   [:div.card-border
    {:on-click click-fn
-    :class (when @selected-atom
+    :class (when (selected? idx)
              "selected")}
    [:div.card-border-inset
     {}
     children]])
 
-(defn handle-select [selected-atom card]
-  (swap! selected-atom not)
-  (swap! state/app-state assoc :selected-card card)
-  (js/console.log  @state/app-state))
+(defn handle-select [card]
+  (if (selected? (:idx card))
+    (swap! state/app-state dissoc :selected-card)
+    (swap! state/app-state assoc :selected-card card)))
 
 (defn card [{:keys [title kind idx]}]
   (let [key (str idx kind title)
         card {:title title
               :kind kind
-              :idx idx}
-        selected-atom (r/atom false)]
+              :idx idx}]
     [card-border
-     (partial handle-select selected-atom card)
-     selected-atom
+     (partial handle-select card)
+     idx
      [:h2 {:key (str key "idx")}
       idx]
      [:h1 {:key (str key "title")}
