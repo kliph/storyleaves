@@ -21,13 +21,10 @@
     (swap! state/app-state dissoc :selected-card)
     (swap! state/app-state assoc :selected-card card)))
 
-(defn card [{:keys [title kind idx]}]
-  (let [key (str idx kind title)
-        card {:title title
-              :kind kind
-              :idx idx}]
+(defn base-card [{:keys [title kind idx]} func]
+  (let [key (str idx kind title)]
     [card-border
-     (partial handle-select card)
+     func
      idx
      [:h2 {:key (str key "idx")}
       idx]
@@ -35,6 +32,13 @@
       title]
      [:div.chip {:key (str key "kind")}
       kind]]))
+
+(defn card [props]
+  (let [card (select-keys props [:title :kind :idx])]
+    (base-card props (partial handle-select card))))
+
+(defn card-unclickable [props]
+  (base-card props (fn [])))
 
 (defn card-back []
   [:div.card-border {}
