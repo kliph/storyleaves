@@ -44,5 +44,5 @@
   [:div.card-border {}
    [:div.card-border-inset {}]])
 
-(defn slot []
-  [:div.slot {}])
+(defn slot [attrs]
+  [:div.slot attrs])

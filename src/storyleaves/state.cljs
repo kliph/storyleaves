@@ -4,9 +4,11 @@
 (def app-state (r/atom {:deck [{:title "Hello World"
                                 :kind "Character"
                                 :idx 0}]
-                        :facets {:antagonist [{} {} {}]
-                                 :protagonist [{} {} {}]
-                                 :antagonist-effort [{}]}
+                        :facets {:antagonist [[{:idx 40
+                                                :title "Yo"
+                                                :kind "Chillax"}] [] []]
+                                 :protagonist [[] [] []]
+                                 :antagonist-effort [nil]}
                         :discard []}))
 
 (defn card-selected? []
