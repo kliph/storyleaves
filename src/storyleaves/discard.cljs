@@ -6,8 +6,6 @@
 
 (defn click-empty-discard []
   (let [selected-card (:selected-card @state/app-state)
-        original-hand (get @state/app-state :hand [])
-        hand (remove #{selected-card} original-hand)
         discard (into [selected-card]
                       (get @state/app-state :discard []))]
     (when selected-card
