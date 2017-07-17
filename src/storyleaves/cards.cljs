@@ -21,10 +21,10 @@
     (swap! state/app-state dissoc :selected-card)
     (swap! state/app-state assoc :selected-card card)))
 
-(defn base-card [{:keys [title kind idx]} func]
+(defn base-card [{:keys [title kind idx]} handler-func]
   (let [key (str idx kind title)]
     [card-border
-     func
+     handler-func
      idx
      [:h2 {:key (str key "idx")}
       idx]
