@@ -4,10 +4,12 @@
 (def app-state (r/atom {:deck [{:title "Hello World"
                                 :kind "Character"
                                 :idx 0}]
-                        :facets {:antagonist [[{:idx 40
-                                                :title "Yo"
-                                                :kind "Chillax"}] [] []]
-                                 :protagonist [[] [] []]
+                        :facets {:antagonist {:slot-0 []
+                                              :slot-1 []
+                                              :slot-2 []}
+                                 :protagonist {:slot-0 []
+                                               :slot-1 []
+                                               :slot-2 []}
                                  :antagonist-effort [nil]}
                         :discard []}))
 

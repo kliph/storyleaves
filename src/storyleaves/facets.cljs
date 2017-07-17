@@ -3,17 +3,25 @@
    [storyleaves.cards :as cards]
    [storyleaves.state :as state]))
 
-(defn card-or-slot [facet]
+(defn slot-idx-to-key [idx]
+  (keyword (str "slot-" idx)))
+
+(defn click-empty-slot [idx kind _]
+  (when-let [selected-card (:selected-card @state/app-state)]
+    (swap! state/app-state dissoc :selected-card)
+    (state/remove-from-hand! selected-card)
+    (swap! state/app-state assoc-in [:facets kind (slot-idx-to-key idx)] [selected-card])))
+
+(defn card-or-slot [facet idx kind]
   (if (empty? facet)
-    [cards/slot]
+    [cards/slot {:on-click (partial click-empty-slot idx kind)}]
     [cards/card (first facet)]))
 
 (defn facet-slot [attrs idx kind]
-  (let [facet (get-in @state/app-state [:facets
-                                        kind
-                                        idx])]
-    [:div.facet
-     [card-or-slot facet]]))
+  [:div.facet
+   [card-or-slot (get-in @state/app-state [:facets
+                                           kind
+                                           (slot-idx-to-key idx)]) idx kind]])
 
 (defn facet-row [kind]
   [:div.row.facets
