@@ -10,7 +10,7 @@
                                  :protagonist {:slot-0 []
                                                :slot-1 []
                                                :slot-2 []}
-                                 :antagonist-effort [nil]}
+                                 :antagonist-effort {:slot-0 []}}
                         :discard []}))
 
 (defn card-selected? []

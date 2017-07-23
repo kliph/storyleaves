@@ -36,4 +36,4 @@
   [facet-row :antagonist])
 
 (defn antagonist-effort []
-  [facet-slot])
+  [facet-slot {} 0 :antagonist-effort])
