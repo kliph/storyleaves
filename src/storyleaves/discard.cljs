@@ -11,6 +11,7 @@
     (when selected-card
       (swap! state/app-state dissoc :selected-card)
       (state/remove-from-hand! selected-card)
+      (state/remove-from-facets! selected-card)
       (swap! state/app-state assoc :discard discard))))
 
 (defn click-top-discard []
